@@ -22,6 +22,10 @@ class MesherGMSH:
   #  gmsh.finalize()
 
   def _gmsh_init(self):
+      print()
+      print("called gmsh init")
+      print()
+
       if not gmsh.isInitialized():
         gmsh.initialize()
 
