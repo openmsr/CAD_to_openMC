@@ -542,6 +542,11 @@ class Assembly:
             print("INFO: checking surfaces and reparing normals")
 
         healed=[]
+
+        print()
+        print("looping through entities")
+        print()
+
         for e in self.entities:
             stl=e.stl
             mesh = trimesh.load_mesh(stl)
