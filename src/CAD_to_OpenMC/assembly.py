@@ -549,15 +549,28 @@ class Assembly:
 
         i=0
         for e in self.entities:
+            print()
             print('iter: ',i)
+            print()
+
             stl=e.stl
 
             mesh = trimesh.load_mesh(stl)
+
+            print()
+            print("loaded mesh... ")
+            print()
+
             if (self.verbose>1):
                 print("INFO: stl-file", stl, ": mesh is watertight", mesh.is_watertight)
             trimesh.repair.fix_normals(
                 mesh
             )  # reqired as gmsh stl export from brep can get the inside outside mixed up
+
+            print()
+            print('fixed normals ... ')
+            print()
+            
             new_filename = stl[:-4] + "_with_corrected_face_normals.stl"
             mesh.export(new_filename)
             e.stl=new_filename
