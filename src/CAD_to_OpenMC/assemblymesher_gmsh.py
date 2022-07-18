@@ -127,6 +127,12 @@ class MesherGMSH:
         ents = gmsh.model.getAdjacencies(dim,vid)
         #may want to skip some problematic surfaces
         if(self.vetoed):
+            print()
+            print()
+            print('in vetoed step')
+            print('vetoed:  ',self.vetoed)
+            print()
+            print()
             picked_ents=[f for f in ents[1] if f not in self.vetoed]
         else:
             picked_ents=ents[1]
