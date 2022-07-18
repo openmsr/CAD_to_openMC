@@ -547,7 +547,9 @@ class Assembly:
         print("looping through entities")
         print()
 
+        i=0
         for e in self.entities:
+            print('iter: ',i)
             stl=e.stl
 
             mesh = trimesh.load_mesh(stl)
@@ -559,6 +561,7 @@ class Assembly:
             new_filename = stl[:-4] + "_with_corrected_face_normals.stl"
             mesh.export(new_filename)
             e.stl=new_filename
+            i+=1
 
     def tag_stls(self,stls):
         stl_tagged=[]
