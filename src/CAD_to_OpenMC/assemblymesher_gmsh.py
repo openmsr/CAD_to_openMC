@@ -36,6 +36,11 @@ class MesherGMSH:
         if(self.threads is not None):
           gmsh.option.setNumber("General.NumThreads",self.threads)
 
+        print()
+        print("setting meshing algo")
+        print("algo:", self.mesh_algorithm)
+        print()
+
         gmsh.option.setNumber("Mesh.Algorithm", self.mesh_algorithm)
         gmsh.option.setNumber("Mesh.MeshSizeMin", self.min_mesh_size)
         gmsh.option.setNumber("Mesh.MeshSizeMax", self.max_mesh_size)

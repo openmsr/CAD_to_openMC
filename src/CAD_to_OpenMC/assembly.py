@@ -549,6 +549,7 @@ class Assembly:
 
         for e in self.entities:
             stl=e.stl
+
             mesh = trimesh.load_mesh(stl)
             if (self.verbose>1):
                 print("INFO: stl-file", stl, ": mesh is watertight", mesh.is_watertight)
