@@ -22,10 +22,6 @@ class MesherGMSH:
   #  gmsh.finalize()
 
   def _gmsh_init(self):
-      print()
-      print("called gmsh init")
-      print()
-
       if not gmsh.isInitialized():
         gmsh.initialize()
 
@@ -39,11 +35,6 @@ class MesherGMSH:
         #do this by means of properties instead
         if(self.threads is not None):
           gmsh.option.setNumber("General.NumThreads",self.threads)
-
-        print()
-        print("setting meshing algo")
-        print("algo:", self.mesh_algorithm)
-        print()
 
         gmsh.option.setNumber("Mesh.Algorithm", self.mesh_algorithm)
         gmsh.option.setNumber("Mesh.MeshSizeMin", self.min_mesh_size)
@@ -114,6 +105,13 @@ class MesherGMSH:
       to merge into a h5m-file. Expects that the geometry has been surface-mesh by gmsh
       so we have a list of volumes to operate on.
       We do this be greating gmsh physical groups and export 1 group at a time."""
+      print()
+      print()
+      print()
+      print('calling generate mesh:')
+      print()
+      print()
+      print()
       self._generate_mesh()
       stls=[]
       vols=gmsh.model.getEntities(3)
@@ -127,12 +125,6 @@ class MesherGMSH:
         ents = gmsh.model.getAdjacencies(dim,vid)
         #may want to skip some problematic surfaces
         if(self.vetoed):
-            print()
-            print()
-            print('in vetoed step')
-            print('vetoed:  ',self.vetoed)
-            print()
-            print()
             picked_ents=[f for f in ents[1] if f not in self.vetoed]
         else:
             picked_ents=ents[1]

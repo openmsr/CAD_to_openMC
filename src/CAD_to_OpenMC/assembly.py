@@ -1,3 +1,5 @@
+import sys
+print(sys.path)
 import gmsh
 import cadquery2 as cq
 import numpy as np
@@ -23,6 +25,8 @@ mesher_config={
   'max_mesh_size':10,
   'curve_samples':20,
   'mesh_algorithm':1,
+  'optimize':False,
+  'optimizer'
   'default':False,
   'vetoed':None,
   'threads':4
@@ -570,7 +574,7 @@ class Assembly:
             print()
             print('fixed normals ... ')
             print()
-            
+
             new_filename = stl[:-4] + "_with_corrected_face_normals.stl"
             mesh.export(new_filename)
             e.stl=new_filename
