@@ -105,13 +105,6 @@ class MesherGMSH:
       to merge into a h5m-file. Expects that the geometry has been surface-mesh by gmsh
       so we have a list of volumes to operate on.
       We do this be greating gmsh physical groups and export 1 group at a time."""
-      print()
-      print()
-      print()
-      print('calling generate mesh:')
-      print()
-      print()
-      print()
       self._generate_mesh()
       stls=[]
       vols=gmsh.model.getEntities(3)
