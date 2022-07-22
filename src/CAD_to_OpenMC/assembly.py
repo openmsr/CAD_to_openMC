@@ -382,9 +382,14 @@ class Assembly:
         moab_core.add_entities(file_set, all_sets)
         if(self.verbose>0):
             print(f"INFO: writing geometry to h5m: \"{h5m_file}\".")
+        print()
+        print()
+        print(f'argument to write func: {h5m_p}')
+        print()
+        print()
         moab_core.write_file(str(h5m_p))
-        if(vtk):
-            moab_core.write_file(str(h5m_p.with_suffix('.vtk')))
+        #if(vtk):
+        #    moab_core.write_file(str(h5m_p.with_suffix('.vtk')))
 
         return str(h5m_p)
 
