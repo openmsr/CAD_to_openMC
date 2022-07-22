@@ -25,8 +25,6 @@ mesher_config={
   'max_mesh_size':10,
   'curve_samples':20,
   'mesh_algorithm':1,
-  'optimize':False,
-  'optimizer'
   'default':False,
   'vetoed':None,
   'threads':4
